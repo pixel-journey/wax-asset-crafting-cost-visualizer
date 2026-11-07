@@ -5,6 +5,8 @@
 
 Three equal costs are 3333 bps each. They sum to 9999. No craft is sent.
 
+The course is [EDUCATION.md](./EDUCATION.md). The missing basis point is integer division, not a fee the chain kept.
+
 The earlier README described a live product. This tree does not ship that.
 
 ## What is actually in the repo
