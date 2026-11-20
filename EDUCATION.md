@@ -1,21 +1,19 @@
-# Education — basis points that do not sum to 10000
+# Education — three equal parts do not make 10000
 
-> **Rung:** `npm test`.  
-> **The test is the rule.** No craft is sent.
+> **Rung:** `npm test` passes. Each share is `floor(units * 10000 / total)`. The rows are not required to sum to 10000.  
+> **The test is the rule.** The lab that *does* require the sum to be 10000 is [px-treasury-incoming-fee-splitter](https://github.com/pixel-journey/px-treasury-incoming-fee-splitter). The floor itself is [px-token-dust-truncation-visualizer](https://github.com/pixel-journey/px-token-dust-truncation-visualizer).
 
-```ts
-shares([
-  { name: "wood", units: 1n },
-  { name: "ore", units: 1n },
-  { name: "cloth", units: 1n },
-])
-// each bps is 3333n
-```
+## Predict, then run
 
-`bps` is `(units * 10000n) / total`. Three equal parts sum to 9999. The missing 1 is the remainder of integer division. A repeated name, a non-positive unit, or a 9th part is `{ ok: false }`. Those refusals are in `share.ts`. The test file asserts the 3333 row only.
+`shares` of wood, ore, and cloth, one unit each:
 
-Part names are `[a-z0-9-]{1,16}`, not Antelope account names. This is not an NFT blend and not `tokens_to_back`.
+| Part | bps |
+| --- | --- |
+| wood | `3333n` |
+| ore | `3333n` |
+| cloth | `3333n` |
+| sum | `9999n` |
 
-```bash
-npm test
-```
+The missing basis point is not given to the last part. Names must be 1 to 16 of `a-z`, `0-9`, or hyphen, and they must be unique. Units must be positive. One to eight parts.
+
+The HTTP examples include an Atomic Packs `unboxassets` row. That request is unsent, and it is not this split.

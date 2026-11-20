@@ -1,7 +1,7 @@
 # Equal parts, 3333 each
 
 **Trust label:** `educational-reference`  
-**Catalog:** [wax-ecosystem-blueprint-catalog](https://github.com/pixel-journey/wax-ecosystem-blueprint-catalog)
+**Catalog:** `wax-ecosystem-blueprint-catalog` (private index; not this public course)
 
 Three equal costs are 3333 bps each. They sum to 9999. No craft is sent.
 
