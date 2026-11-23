@@ -8,10 +8,24 @@ describe("cost shares", () => {
       { name: "ore", units: 1n },
       { name: "cloth", units: 1n },
     ]);
-    expect(split.ok && split.rows.map((row) => row.bps)).toEqual([3333n, 3333n, 3333n]);
+    expect(split.ok && split.rows.map((row) => row.bps)).toEqual([
+      3333n,
+      3333n,
+      3333n,
+    ]);
     if (split.ok) {
       const sum = split.rows.reduce((total, row) => total + row.bps, 0n);
       expect(sum).toBe(9999n);
     }
+  });
+
+  it("refuses duplicate names and zero units", () => {
+    expect(
+      shares([
+        { name: "wood", units: 1n },
+        { name: "wood", units: 1n },
+      ]).ok,
+    ).toBe(false);
+    expect(shares([{ name: "wood", units: 0n }]).ok).toBe(false);
   });
 });
